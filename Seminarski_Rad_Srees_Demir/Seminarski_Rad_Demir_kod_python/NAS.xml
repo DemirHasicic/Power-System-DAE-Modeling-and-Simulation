@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Model type="DAE" domain="real" method="Trapezoidal" eps="1e-6" name="Generator with a single node">
+	<Vars>
+		<Var name="theta_g" val="0"/>
+		<Var name="omega_g" val="1"/>
+		<Var name="regI"/>
+		<Var name="theta_l"/>
+		<Var name="v_l"/>
+		<Var name="P_ge"/>
+		<Var name="P_gm"/>
+		<Var name="v_2" val="1.0"/>
+		<Var name="theta_2" val="0.0"/>
+		<Var name="v_3" val="1.0"/>
+		<Var name="theta_3" val="0.0"/>
+		<Var name="v_4" val="1.0"/>
+		<Var name="theta_4" val="0.0"/>
+		<Var name="v_5" val="1.0"/>
+		<Var name="theta_5" val="0.0"/>
+		<Var name="v_6" val="1.0"/>
+		<Var name="theta_6" val="0.0"/>
+		<Var name="v_7" val="1.0"/>
+		<Var name="theta_7" val="0.0"/>
+		<Var name="v_8" val="1.0"/>
+		<Var name="theta_8" val="0.0"/>
+		<Var name="v_9" val="1.0"/>
+		<Var name="theta_9" val="0.0"/>
+		<Var name="Pg1"/>
+		<Var name="Pg2"/>
+		<Var name="Pg3"/>
+		<Var name="Qg1"/>
+		<Var name="Qg2"/>
+		<Var name="Qg3"/>
+		<Var name="Pl5"/>
+		<Var name="Pl6"/>
+		<Var name="Pl8"/>
+		<Var name="Ql5"/>
+		<Var name="Ql6"/>
+		<Var name="Ql8"/>
+		<Var name="Ig1" val="0"/>
+		<Var name="Ig2" val="0"/>
+		<Var name="Ig3" val="0"/>
+		<Var name="gama_1" val="0"/>
+		<Var name="gama_2" val="0"/>
+		<Var name="gama_3" val="0"/>
+		<Var name="delta_1"/>
+		<Var name="delta_2"/>
+		<Var name="delta_3"/>
+		<Var name="Id1" val="0"/>
+		<Var name="Id2" val="0"/>
+		<Var name="Id3" val="0"/>
+		<Var name="Iq1" val="0"/>
+		<Var name="Iq2" val="0"/>
+		<Var name="Iq3" val="0"/>
+		<Var name="vd1" val="0"/>
+		<Var name="vd2" val="0"/>
+		<Var name="vd3" val="0"/>
+		<Var name="vq1" val="0"/>
+		<Var name="vq2" val="0"/>
+		<Var name="vq3" val="0"/>
+		<Var name="Ed1_p" val="0"/>
+		<Var name="Ed2_p" val="0"/>
+		<Var name="Ed3_p" val="0"/>
+		<Var name="Eq1_p" val="0"/>
+		<Var name="Eq2_p" val="0"/>
+		<Var name="Eq3_p" val="0"/>
+		<Var name="Efd1" val="0"/>
+		<Var name="Efd2" val="0"/>
+		<Var name="Efd3" val="0"/>
+		<Var name="vr1" val="0"/>
+		<Var name="vr2" val="0"/>
+		<Var name="vr3" val="0"/>
+		<Var name="Rf1" val="0"/>
+		<Var name="Rf2" val="0"/>
+		<Var name="Rf3" val="0"/>
+		<Var name="vref1" val="0"/>
+		<Var name="vref2" val="0"/>
+		<Var name="vref3" val="0"/>
+		<Var name="Tm1" val="0"/>
+		<Var name="Tm2" val="0"/>
+		<Var name="Tm3" val="0"/>
+	</Vars>
+	<Params dT="1e-4">
+		<!-- default integration step -->
+		<Param name="omegas" val="1"/>
+		<Param name="V_gref" val="1"/>
+		<Param name="v_g" val="V_gref"/>
+		<Param name="g_line" val="100"/>
+		<Param name="b_line" val="-10"/>
+		<Param name="P_l_steady" val="-1"/>
+		<Param name="P_l_transient" val="-10"/>
+		<Param name="Q_l" val="-0.3"/>
+		<Param name="H" val="20"/>
+		<Param name="D" val="0.1"/>
+		<Param name="G11" val="g_line"/>
+		<Param name="B11" val="b_line"/>
+		<Param name="G22" val="G11"/>
+		<Param name="B22" val="B11"/>
+		<Param name="G12" val="-g_line"/>
+		<Param name="B12" val="-b_line"/>
+		<Param name="Kp" val="200"/>
+		<Param name="Ki" val="60"/>
+		<Param name="Pgm_min" val="0"/>
+		<Param name="Pgm_max" val="11.5"/>
+		<Param name="v_1" val="1.04"/>
+		<Param name="theta_1" val="0.0"/>
+		<Param name="g_1_4" val="0.0"/>
+		<Param name="b_1_4" val="-17.36111111111111"/>
+		<Param name="g_4_5" val="1.9421912487147268"/>
+		<Param name="b_4_5" val="-10.510682051867933"/>
+		<Param name="g_5_6" val="1.2820091384241146"/>
+		<Param name="b_5_6" val="-5.588244962361526"/>
+		<Param name="g_3_6" val="0.0"/>
+		<Param name="b_3_6" val="-17.064846416382252"/>
+		<Param name="g_6_7" val="1.1550874808900968"/>
+		<Param name="b_6_7" val="-9.784270426363172"/>
+		<Param name="g_7_8" val="1.6171224732461358"/>
+		<Param name="b_7_8" val="-13.697978596908442"/>
+		<Param name="g_8_2" val="0.0"/>
+		<Param name="b_8_2" val="-16.0"/>
+		<Param name="g_8_9" val="1.1876043792911486"/>
+		<Param name="b_8_9" val="-5.975134533308591"/>
+		<Param name="g_9_4" val="1.3651877133105799"/>
+		<Param name="b_9_4" val="-11.60409556313993"/>
+		<Param name="G_1_1" val="g_1_4"/>
+		<Param name="G_4_4" val="g_1_4+g_4_5+g_9_4"/>
+		<Param name="G_5_5" val="g_4_5+g_5_6"/>
+		<Param name="G_6_6" val="g_5_6+g_3_6+g_6_7"/>
+		<Param name="G_3_3" val="g_3_6"/>
+		<Param name="G_7_7" val="g_6_7+g_7_8"/>
+		<Param name="G_8_8" val="g_7_8+g_8_2+g_8_9"/>
+		<Param name="G_2_2" val="g_8_2"/>
+		<Param name="G_9_9" val="g_8_9+g_9_4"/>
+		<Param name="B_1_1" val="b_1_4"/>
+		<Param name="B_4_4" val="b_1_4+b_4_5+b_9_4+0.16699999999999998"/>
+		<Param name="B_5_5" val="b_4_5+b_5_6+0.258"/>
+		<Param name="B_6_6" val="b_5_6+b_3_6+b_6_7+0.2835"/>
+		<Param name="B_3_3" val="b_3_6"/>
+		<Param name="B_7_7" val="b_6_7+b_7_8+0.179"/>
+		<Param name="B_8_8" val="b_7_8+b_8_2+b_8_9+0.22749999999999998"/>
+		<Param name="B_2_2" val="b_8_2"/>
+		<Param name="B_9_9" val="b_8_9+b_9_4+0.241"/>
+		<Param name="G_1_4" val="-g_1_4"/>
+		<Param name="B_1_4" val="-b_1_4"/>
+		<Param name="G_4_5" val="-g_4_5"/>
+		<Param name="B_4_5" val="-b_4_5"/>
+		<Param name="G_5_6" val="-g_5_6"/>
+		<Param name="B_5_6" val="-b_5_6"/>
+		<Param name="G_3_6" val="-g_3_6"/>
+		<Param name="B_3_6" val="-b_3_6"/>
+		<Param name="G_6_7" val="-g_6_7"/>
+		<Param name="B_6_7" val="-b_6_7"/>
+		<Param name="G_7_8" val="-g_7_8"/>
+		<Param name="B_7_8" val="-b_7_8"/>
+		<Param name="G_8_2" val="-g_8_2"/>
+		<Param name="B_8_2" val="-b_8_2"/>
+		<Param name="G_8_9" val="-g_8_9"/>
+		<Param name="B_8_9" val="-b_8_9"/>
+		<Param name="G_9_4" val="-g_9_4"/>
+		<Param name="B_9_4" val="-b_9_4"/>
+		<Param name="v_3_sp" val="1.025"/>
+		<Param name="v_2_sp" val="1.025"/>
+		<Param name="P2_inj" val="1.63"/>
+		<Param name="P3_inj" val="0.85"/>
+		<Param name="P4_inj" val="0.0"/>
+		<Param name="P5_inj" val="-0.9"/>
+		<Param name="P6_inj" val="0.0"/>
+		<Param name="P7_inj" val="-1.0"/>
+		<Param name="P8_inj" val="0.0"/>
+		<Param name="P9_inj" val="-1.25"/>
+		<Param name="Q2_inj" val="0.0654"/>
+		<Param name="Q3_inj" val="-0.10949999999999999"/>
+		<Param name="Q4_inj" val="0.0"/>
+		<Param name="Q5_inj" val="-0.3"/>
+		<Param name="Q6_inj" val="0.0"/>
+		<Param name="Q7_inj" val="-0.35"/>
+		<Param name="Q8_inj" val="0.0"/>
+		<Param name="Q9_inj" val="-0.5"/>
+		<Param name="Rs1" val="0"/>
+		<Param name="Rs2" val="0"/>
+		<Param name="Rs3" val="0"/>
+		<Param name="Xq1" val="0.0969"/>
+		<Param name="Xq2" val="0.8645"/>
+		<Param name="Xq3" val="1.2578"/>
+		<Param name="Xq1_p" val="0.0969"/>
+		<Param name="Xq2_p" val="0.1969"/>
+		<Param name="Xq3_p" val="0.25"/>
+		<Param name="Xd1" val="0.146"/>
+		<Param name="Xd2" val="0.8959"/>
+		<Param name="Xd3" val="1.3125"/>
+		<Param name="Xd1_p" val="0.0608"/>
+		<Param name="Xd2_p" val="0.1198"/>
+		<Param name="Xd3_p" val="0.1813"/>
+		<!--p.u.-->
+		<Param name="Tdo1_p" val="8.96"/>
+		<!--sekunde-->
+		<Param name="Tdo2_p" val="6.0"/>
+		<Param name="Tdo3_p" val="5.89"/>
+		<Param name="Tqo1_p" val="0.31 "/>
+		<Param name="Tqo2_p" val="0.535"/>
+		<Param name="Tqo3_p" val="0.6"/>
+		<Param name="Ka1" val="20"/>
+		<Param name="Ka2" val="20"/>
+		<Param name="Ka3" val="20"/>
+		<Param name="Ta1" val="0.2"/>
+		<Param name="Ta2" val="0.2"/>
+		<Param name="Ta3" val="0.2"/>
+		<Param name="Ke1" val="1"/>
+		<Param name="Ke2" val="1"/>
+		<Param name="Ke3" val="1"/>
+		<Param name="Te1" val="0.314"/>
+		<Param name="Te2" val="0.314"/>
+		<Param name="Te3" val="0.314"/>
+		<Param name="Kf1" val="0.063"/>
+		<Param name="Kf2" val="0.063"/>
+		<Param name="Kf3" val="0.063"/>
+		<Param name="Tf1" val="0.35"/>
+		<Param name="Tf2" val="0.35"/>
+		<Param name="Tf3" val="0.35"/>
+		<Param name ="D1M1" val="0.1"/>
+		<Param name ="D2M2" val="0.2"/>
+		<Param name ="D3M3" val="0.3"/>
+		<Param name="H1" val="23.64"/>
+		<Param name="H2" val="6.4"/>
+		<Param name="H3" val="3.01"/>>
+
+
+		<Param name="Arkus1" val="atg2(Rs1,Xq1)"/>
+		<Param name="Arkus2" val="atg2(Rs2,Xq2)"/>
+		<Param name="Arkus3" val="atg2(Rs3,Xq3)"/>
+
+
+
+	</Params>
+	<!-- Calculate initial PF -->
+	<Init>
+		<Model type="NR" domain="real" eps="1e-6" name="PF Subproblem for DAE">
+			<!-- PF subproblem -->
+			<Vars>
+				<Var name="v_2" val="1.0"/>
+				<Var name="theta_2" val="0.0"/>
+				<Var name="v_3" val="1.0"/>
+				<Var name="theta_3" val="0.0"/>
+				<Var name="v_4" val="1.0"/>
+				<Var name="theta_4" val="0.0"/>
+				<Var name="v_5" val="1.0"/>
+				<Var name="theta_5" val="0.0"/>
+				<Var name="v_6" val="1.0"/>
+				<Var name="theta_6" val="0.0"/>
+				<Var name="v_7" val="1.0"/>
+				<Var name="theta_7" val="0.0"/>
+				<Var name="v_8" val="1.0"/>
+				<Var name="theta_8" val="0.0"/>
+				<Var name="v_9" val="1.0"/>
+				<Var name="theta_9" val="0.0"/>
+
+				<Var name="theta_l" val="0"/>
+				<Var name="v_l" val="V_gref"/>
+			</Vars>
+			<Params>
+				<Param name="Ig1" val="0"/>
+				<Param name="Ig2" val="0"/>
+				<Param name="Ig3" val="0"/>
+				<Param name="gama_1" val="0"/>
+				<Param name="gama_2" val="0"/>
+				<Param name="gama_3" val="0"/>
+				<Param name="vd1" val="0"/>
+				<Param name="vd2" val="0"/>
+				<Param name="vd3" val="0"/>
+				<Param name="vq1" val="0"/>
+				<Param name="vq2" val="0"/>
+				<Param name="vq3" val="0"/>
+				<Param name="vref1" val="0"/>
+				<Param name="vref2" val="0"/>
+				<Param name="vref3" val="0"/>
+				<Param name="Tm1" val="0"/>
+				<Param name="Tm2" val="0"/>
+				<Param name="Tm3" val="0"/>
+				<Param name="theta_g" val="0"/>
+				<Param name="P_ge" val="0"/>
+				<Param name="Pg1"/>
+				<Param name="Pg2"/>
+				<Param name="Pg3"/>
+				<Param name="Qg1"/>
+				<Param name="Qg2"/>
+				<Param name="Qg3"/>
+				<Param name="Pl5"/>
+				<Param name="Pl6"/>
+				<Param name="Pl8"/>
+				<Param name="Ql5"/>
+				<Param name="Ql6"/>
+				<Param name="Ql8"/>
+				<Param name="delta_1"/>
+				<Param name="delta_2"/>
+				<Param name="delta_3"/>
+				<Param name="Id1" val="0"/>
+				<Param name="Id2" val="0"/>
+				<Param name="Id3" val="0"/>
+				<Param name="Iq1" val="0"/>
+				<Param name="Iq2" val="0"/>
+				<Param name="Iq3" val="0"/>
+
+				<Param name="Ed1_p" val="0"/>
+				<Param name="Ed2_p" val="0"/>
+				<Param name="Ed3_p" val="0"/>
+				<Param name="Eq1_p" val="0"/>
+				<Param name="Eq2_p" val="0"/>
+				<Param name="Eq3_p" val="0"/>
+				<Param name="Efd1" val="0"/>
+				<Param name="Efd2" val="0"/>
+				<Param name="Efd3" val="0"/>
+				<Param name="vr1" val="0"/>
+				<Param name="vr2" val="0"/>
+				<Param name="vr3" val="0"/>
+				<Param name="Rf1" val="0"/>
+				<Param name="Rf2" val="0"/>
+				<Param name="Rf3" val="0"/>
+			</Params>
+			<NLEqs>
+				
+				<Eq fx="v_l^2*G22 + v_l*v_g*(G12*cos(theta_l-theta_g) + B12*sin(theta_l-theta_g))-P_l_steady"/>
+				<Eq fx="-v_l^2*B22 + v_l*v_g*(G12*sin(theta_l-theta_g) - B12*cos(theta_l-theta_g))-Q_l"/>
+				<Eq fx="v_4^2*G_4_4+v_1*v_4*(G_1_4*cos(theta_4-theta_1)+B_1_4*sin(theta_4-theta_1))+v_4*v_5*(G_4_5*cos(theta_4-theta_5)+B_4_5*sin(theta_4-theta_5))+v_9*v_4*(G_9_4*cos(theta_4-theta_9)+B_9_4*sin(theta_4-theta_9))-P4_inj"/>
+				<Eq fx="-v_4^2*B_4_4+v_1*v_4*(G_1_4*sin(theta_4-theta_1)-B_1_4*cos(theta_4-theta_1))+v_4*v_5*(G_4_5*sin(theta_4-theta_5)-B_4_5*cos(theta_4-theta_5))+v_9*v_4*(G_9_4*sin(theta_4-theta_9)-B_9_4*cos(theta_4-theta_9))-Q4_inj"/>
+				<Eq fx="v_5^2*G_5_5+v_4*v_5*(G_4_5*cos(theta_5-theta_4)+B_4_5*sin(theta_5-theta_4))+v_5*v_6*(G_5_6*cos(theta_5-theta_6)+B_5_6*sin(theta_5-theta_6))-P5_inj"/>
+				<Eq fx="-v_5^2*B_5_5+v_4*v_5*(G_4_5*sin(theta_5-theta_4)-B_4_5*cos(theta_5-theta_4))+v_5*v_6*(G_5_6*sin(theta_5-theta_6)-B_5_6*cos(theta_5-theta_6))-Q5_inj"/>
+				<Eq fx="v_6^2*G_6_6+v_5*v_6*(G_5_6*cos(theta_6-theta_5)+B_5_6*sin(theta_6-theta_5))+v_3*v_6*(G_3_6*cos(theta_6-theta_3)+B_3_6*sin(theta_6-theta_3))+v_6*v_7*(G_6_7*cos(theta_6-theta_7)+B_6_7*sin(theta_6-theta_7))-P6_inj"/>
+				<Eq fx="-v_6^2*B_6_6+v_5*v_6*(G_5_6*sin(theta_6-theta_5)-B_5_6*cos(theta_6-theta_5))+v_3*v_6*(G_3_6*sin(theta_6-theta_3)-B_3_6*cos(theta_6-theta_3))+v_6*v_7*(G_6_7*sin(theta_6-theta_7)-B_6_7*cos(theta_6-theta_7))-Q6_inj"/>
+				<Eq fx="v_3^2*G_3_3+v_3*v_6*(G_3_6*cos(theta_3-theta_6)+B_3_6*sin(theta_3-theta_6))-P3_inj"/>
+				<Eq fx="v_3-v_3_sp"/>
+				<Eq fx="v_7^2*G_7_7+v_6*v_7*(G_6_7*cos(theta_7-theta_6)+B_6_7*sin(theta_7-theta_6))+v_7*v_8*(G_7_8*cos(theta_7-theta_8)+B_7_8*sin(theta_7-theta_8))-P7_inj"/>
+				<Eq fx="-v_7^2*B_7_7+v_6*v_7*(G_6_7*sin(theta_7-theta_6)-B_6_7*cos(theta_7-theta_6))+v_7*v_8*(G_7_8*sin(theta_7-theta_8)-B_7_8*cos(theta_7-theta_8))-Q7_inj"/>
+				<Eq fx="v_8^2*G_8_8+v_7*v_8*(G_7_8*cos(theta_8-theta_7)+B_7_8*sin(theta_8-theta_7))+v_8*v_2*(G_8_2*cos(theta_8-theta_2)+B_8_2*sin(theta_8-theta_2))+v_8*v_9*(G_8_9*cos(theta_8-theta_9)+B_8_9*sin(theta_8-theta_9))-P8_inj"/>
+				<Eq fx="-v_8^2*B_8_8+v_7*v_8*(G_7_8*sin(theta_8-theta_7)-B_7_8*cos(theta_8-theta_7))+v_8*v_2*(G_8_2*sin(theta_8-theta_2)-B_8_2*cos(theta_8-theta_2))+v_8*v_9*(G_8_9*sin(theta_8-theta_9)-B_8_9*cos(theta_8-theta_9))-Q8_inj"/>
+				<Eq fx="v_2^2*G_2_2+v_8*v_2*(G_8_2*cos(theta_2-theta_8)+B_8_2*sin(theta_2-theta_8))-P2_inj"/>
+				<Eq fx="v_2-v_2_sp"/>
+				<Eq fx="v_9^2*G_9_9+v_8*v_9*(G_8_9*cos(theta_9-theta_8)+B_8_9*sin(theta_9-theta_8))+v_9*v_4*(G_9_4*cos(theta_9-theta_4)+B_9_4*sin(theta_9-theta_4))-P9_inj"/>
+				<Eq fx="-v_9^2*B_9_9+v_8*v_9*(G_8_9*sin(theta_9-theta_8)-B_8_9*cos(theta_9-theta_8))+v_9*v_4*(G_9_4*sin(theta_9-theta_4)-B_9_4*cos(theta_9-theta_4))-Q9_inj"/>
+				
+			</NLEqs>
+			<PostProc>
+
+				<Param name="Arkus1" val="atg2(Rs1,Xq1)"/>
+				<Param name="Arkus2" val="atg2(Rs2,Xq2)"/>
+				<Param name="Arkus3" val="atg2(Rs3,Xq3)"/>
+				<!-- Calcualate initial power that generator generates at steady state -->
+				<Eq fx="P_ge = v_g^2*G11 + v_l*v_g*(G12*cos(theta_g-theta_l) + B12*sin(theta_g-theta_l))"/>
+				<Eq fx="Ig1 = sqrt((Pg1^2+Qg1^2)/v_1^2)"/>
+				<Eq fx="Ig2 = sqrt((Pg2^2+Qg2^2)/v_2^2)"/>
+				<Eq fx="Ig3 = sqrt((Pg3^2+Qg3^2)/v_3^2)"/>
+				<Eq fx="gama_1 = atg2(Pg1,-Qg1)+theta_1"/>
+				<Eq fx="gama_2 = atg2(Pg2,-Qg2)+theta_2"/>
+				<Eq fx="gama_3 = atg2(Pg3, -Qg3)+theta_3"/>
+				<Eq fx="delta_1 =atg2(v_1*cos(theta_1)+sqrt(Rs1^2+Xq1^2)*sqrt((Pg1^2+Qg1^2)/v_1^2)*cos(Arkus1+gama_1),v_1*sin(theta_1)+sqrt(Rs1^2+Xq1^2)*sqrt((Pg1^2+Qg1^2)/v_1^2)*sin(Arkus1+gama_1))"/>
+				<Eq fx="delta_2 =atg2(v_2*cos(theta_2)+sqrt(Rs2^2+Xq2^2)*sqrt((Pg2^2+Qg2^2)/v_2^2)*cos(Arkus2+gama_2),v_2*sin(theta_2)+sqrt(Rs2^2+Xq2^2)*sqrt((Pg2^2+Qg2^2)/v_2^2)*sin(Arkus2+gama_2))"/>
+				<Eq fx="delta_3 =atg2(v_3*cos(theta_3)+sqrt(Rs3^2+Xq3^2)*sqrt((Pg3^2+Qg3^2)/v_3^2)*cos(Arkus3+gama_3),v_3*sin(theta_3)+sqrt(Rs3^2+Xq3^2)*sqrt((Pg3^2+Qg3^2)/v_3^2)*sin(Arkus3+gama_3))"/>
+				<Eq fx="Id1 = Ig1*cos(gama_1-delta_1+pi/2)"/>
+				<Eq fx="Id2 = Ig2*cos(gama_2-delta_2+pi/2)"/>
+				<Eq fx="Id3 = Ig3*cos(gama_3-delta_3+pi/2)"/>
+				<Eq fx="Iq1 = Ig1*sin(gama_1-delta_1+pi/2)"/>
+				<Eq fx="Iq2 = Ig2*sin(gama_2-delta_2+pi/2)"/>
+				<Eq fx="Iq3 = Ig3*sin(gama_3-delta_3+pi/2)"/>
+				<Eq fx="Ed1_p = (Xq1-Xq1_p)*Iq1"/>
+				<Eq fx="Ed2_p = (Xq2-Xq2_p)*Iq2"/>
+				<Eq fx="Ed3_p = (Xq3-Xq3_p)*Iq3"/>
+				<Eq fx="Eq1_p = vq1+Rs1*Iq1+Xd1_p*Id1"/>
+				<Eq fx="Eq2_p = vq2+Rs2*Iq2+Xd2_p*Id2"/>
+				<Eq fx="Eq3_p = vq3+Rs3*Iq3+Xd3_p*Id3"/>
+				<Eq fx="Efd1 = Eq1_p+(Xd1-Xd1_p)*Id1"/>
+				<Eq fx="Efd2 = Eq2_p+(Xd2-Xd2_p)*Id2"/>
+				<Eq fx="Efd3 = Eq3_p+(Xd3-Xd3_p)*Id3"/>
+				<Eq fx="vr1 = (Ke1+0.0039*e^(1.555*Efd1))*Efd1"/>
+				<Eq fx="vr2 = (Ke2+0.0039*e^(1.555*Efd2))*Efd2"/>
+				<Eq fx="vr3 = (Ke3+0.0039*e^(1.555*Efd3))*Efd3"/>
+				<Eq fx="Rf1 = Kf1/Tf1*Efd1"/>
+				<Eq fx="Rf2 = Kf2/Tf2*Efd2"/>
+				<Eq fx="Rf3 = Kf3/Tf3*Efd3"/>
+				<Eq fx="vref1 = v_1 + vr1/Ka1"/>
+				<Eq fx="vref2 = v_2 + vr2/Ka2"/>
+				<Eq fx="vref3 = v_3 + vr3/Ka3"/>
+				<Eq fx="vd1 = v_1*cos(theta_1-delta_1+pi/2)"/>
+				<Eq fx="vd2 = v_2*cos(theta_2-delta_2+pi/2)"/>
+				<Eq fx="vd3 = v_3*cos(theta_3-delta_3+pi/2)"/>
+				<Eq fx="vq1 = v_1*sin(theta_1-delta_1+pi/2)"/>
+				<Eq fx="vq2 = v_2*sin(theta_2-delta_2+pi/2)"/>
+				<Eq fx="vq3 = v_3*sin(theta_3-delta_3+pi/2)"/>
+				<Eq fx="Tm1 = Ed1_p*Id1+Eq1_p*Iq1+(Xq1_p-Xd1_p)*Id1*Iq1"/>
+				<Eq fx="Tm2 = Ed2_p*Id2+Eq2_p*Iq2+(Xq2_p-Xd2_p)*Id2*Iq2"/>
+				<Eq fx="Tm3 = Ed3_p*Id3+Eq3_p*Iq3+(Xq3_p-Xd3_p)*Id3*Iq3"/>
+				<Eq fx="Pg1 = v_1^2*G_1_1 + v_1*v_4*(G_1_4*cos(theta_1-theta_4) + B_1_4*sin(theta_1-theta_4))"/>
+				<Eq fx="Qg1 = -v_1^2*B_1_1 + v_1*v_4*(G_1_4*sin(theta_1-theta_4) - B_1_4*cos(theta_1-theta_4))"/>
+				<Eq fx="Pg2 = v_2^2*G_2_2 + v_8*v_2*(G_8_2*cos(theta_2-theta_8) + B_8_2*sin(theta_2-theta_8))"/>
+				<Eq fx="Qg2 = -v_2^2*B_2_2 + v_8*v_2*(G_8_2*sin(theta_2-theta_8) - B_8_2*cos(theta_2-theta_8))"/>
+				<Eq fx="Pg3 = v_3^2*G_3_3 + v_3*v_6*(G_3_6*cos(theta_3-theta_6) + B_3_6*sin(theta_3-theta_6))"/>
+				<Eq fx="Qg3 = -v_3^2*B_3_3 + v_3*v_6*(G_3_6*sin(theta_3-theta_6) - B_3_6*cos(theta_3-theta_6))"/>
+				<Eq fx="Pl6 = v_5^2*G_5_5+v_4*v_5*(G_4_5*cos(theta_5-theta_4)+B_4_5*sin(theta_5-theta_4))+v_5*v_6*(G_5_6*cos(theta_5-theta_6)+B_5_6*sin(theta_5-theta_6))"/>
+				<Eq fx="Ql6 = -v_5^2*B_5_5+v_4*v_5*(G_4_5*sin(theta_5-theta_4)-B_4_5*cos(theta_5-theta_4))+v_5*v_6*(G_5_6*sin(theta_5-theta_6)-B_5_6*cos(theta_5-theta_6))"/>
+				<Eq fx="Pl8= v_7^2*G_7_7+v_6*v_7*(G_6_7*cos(theta_7-theta_6)+B_6_7*sin(theta_7-theta_6))+v_7*v_8*(G_7_8*cos(theta_7-theta_8)+B_7_8*sin(theta_7-theta_8))"/>
+				<Eq fx="Ql8= -v_7^2*B_7_7+v_6*v_7*(G_6_7*sin(theta_7-theta_6)-B_6_7*cos(theta_7-theta_6))+v_7*v_8*(G_7_8*sin(theta_7-theta_8)-B_7_8*cos(theta_7-theta_8))"/>
+				<Eq fx="Pl5= v_9^2*G_9_9+v_8*v_9*(G_8_9*cos(theta_9-theta_8)+B_8_9*sin(theta_9-theta_8))+v_9*v_4*(G_9_4*cos(theta_9-theta_4)+B_9_4*sin(theta_9-theta_4))"/>
+				<Eq fx="Ql5= -v_9^2*B_9_9+v_8*v_9*(G_8_9*sin(theta_9-theta_8)-B_8_9*cos(theta_9-theta_8))+v_9*v_4*(G_9_4*sin(theta_9-theta_4)-B_9_4*cos(theta_9-theta_4))"/>
+				<!-- transfer initial values to parent problem -->
+				<Eq fx="base.P_ge    = P_ge"/>
+				<Eq fx="base.P_gm    = P_ge"/>
+				<Eq fx="base.regI    = P_ge"/>
+				<Eq fx="base.theta_l = theta_l"/>
+				<Eq fx="base.v_2     = v_2"/>
+				<Eq fx="base.v_3     = v_3"/>
+				<Eq fx="base.v_4     = v_4"/>
+				<Eq fx="base.v_5     = v_5"/>
+				<Eq fx="base.v_6     = v_6"/>
+				<Eq fx="base.v_7     = v_7"/>
+				<Eq fx="base.v_8     = v_8"/>
+				<Eq fx="base.v_9     = v_9"/>
+				<Eq fx="base.v_l     = v_l"/>
+				<Eq fx="base.Pg1    = Pg1"/>
+				<Eq fx="base.Pg2    = Pg2"/>
+				<Eq fx="base.Pg3    = Pg3"/>
+				<Eq fx="base.Qg1    = Qg1"/>
+				<Eq fx="base.Qg2    = Qg2"/>
+				<Eq fx="base.Qg3    = Qg3"/>
+				<Eq fx="base.Pl6    = Pl6"/>
+				<Eq fx="base.Pl8    = Pl8"/>
+				<Eq fx="base.Pl5    = Pl5"/>
+				<Eq fx="base.Ql6    = Ql6"/>
+				<Eq fx="base.Ql5    = Ql5"/>
+				<Eq fx="base.Ql8    = Ql8"/>
+				<Eq fx="base.gama_1   = gama_1"/>
+				<Eq fx="base.gama_2   = gama_2"/>
+				<Eq fx="base.gama_3  = gama_3"/>
+				<Eq fx="base.Ig1  = Ig1"/>
+				<Eq fx="base.Ig2  = Ig2"/>
+				<Eq fx="base.Ig3  = Ig3"/>
+				<Eq fx="base.delta_1  = delta_1"/>
+				<Eq fx="base.delta_2  = delta_2"/>
+				<Eq fx="base.delta_3  = delta_3"/>
+				<Eq fx="base.Id1  = Id1"/>
+				<Eq fx="base.Id2  = Id1"/>
+				<Eq fx="base.Id3  = Id3"/>
+				<Eq fx="base.Iq1  = Iq1"/>
+				<Eq fx="base.Iq2  = Iq2"/>
+				<Eq fx="base.Iq3  = Iq3"/>
+				<Eq fx="base.vd1  = vd1"/>
+				<Eq fx="base.vd2  = vd2"/>
+				<Eq fx="base.vd3  = vd3"/>
+				<Eq fx="base.vq1  = vq1"/>
+				<Eq fx="base.vq2  = vq2"/>
+				<Eq fx="base.vq3  = vq3"/>
+				<Eq fx="base.Ed1_p  = Ed1_p"/>
+				<Eq fx="base.Ed2_p  = Ed2_p"/>
+				<Eq fx="base.Ed3_p  = Ed3_p"/>
+				<Eq fx="base.Eq1_p  = Eq1_p"/>
+				<Eq fx="base.Eq2_p  = Eq2_p"/>
+				<Eq fx="base.Eq3_p  = Eq3_p"/>
+				<Eq fx="base.Efd1  = Efd1"/>
+				<Eq fx="base.Efd2  = Efd2"/>
+				<Eq fx="base.Efd3  = Efd3"/>
+				<Eq fx="base.vr1  = vr1"/>
+				<Eq fx="base.vr2  = vr2"/>
+				<Eq fx="base.vr3  = vr3"/>
+				<Eq fx="base.Rf1 = Rf1"/>
+				<Eq fx="base.Rf2  = Rf2"/>
+				<Eq fx="base.Rf3  = Rf3"/>
+				<Eq fx="base.vref1  = vref1"/>
+				<Eq fx="base.vref2  = vref2"/>
+				<Eq fx="base.vref3  = vref3"/>
+				<Eq fx="base.Tm1 = Tm1"/>
+				<Eq fx="base.Tm2  = Tm2"/>
+				<Eq fx="base.Tm3  = Tm3"/>
+			</PostProc>
+		</Model>
+	</Init>
+
+	<!-- Main problem (DAE)-->
+	<ODEqs>
+		<Eq fx="theta_g' = omega_g"/>
+		<Eq fx="omega_g' = (P_gm-P_ge) / (H*omega_g)"/>
+		<Eq fx="regI = Ki*int(omegas-omega_g)"/>
+	</ODEqs>
+	<NLEqs>
+
+		<Eq fx="Ig1 = sqrt((Pg1^2+Qg1^2)/v_1^2)"/>
+		<Eq fx="Ig2 = sqrt((Pg2^2+Qg2^2)/v_2^2)"/>
+		<Eq fx="Ig3 = sqrt((Pg3^2+Qg3^2)/v_3^2)"/>
+		<Eq fx="gama_1 = atg2(Pg1,-Qg1)+theta_1"/>
+		<Eq fx="gama_2 = atg2(Pg2,-Qg2)+theta_2"/>
+		<Eq fx="gama_3 = atg2(Pg3, -Qg3)+theta_3"/>
+		<Eq fx="vd1 = v_1*cos(theta_1-delta_1+pi/2)"/>
+		<Eq fx="vd2 = v_2*cos(theta_2-delta_2+pi/2)"/>
+		<Eq fx="vd3 = v_3*cos(theta_3-delta_3+pi/2)"/>
+		<Eq fx="vq1 = v_1*sin(theta_1-delta_1+pi/2)"/>
+		<Eq fx="vq2 = v_2*sin(theta_2-delta_2+pi/2)"/>
+		<Eq fx="vq3 = v_3*sin(theta_3-delta_3+pi/2)"/>
+		<Eq fx="vref1 = v_1 + vr1/Ka1"/>
+		<Eq fx="vref2 = v_2 + vr2/Ka2"/>
+		<Eq fx="vref3 = v_3 + vr3/Ka3"/>
+		<Eq fx="Tm1 = Ed1_p*Id1+Eq1_p*Iq1+(Xq1_p-Xd1_p)*Id1*Iq1"/>
+		<Eq fx="Tm2 = Ed2_p*Id2+Eq2_p*Iq2+(Xq2_p-Xd2_p)*Id2*Iq2"/>
+		<Eq fx="Tm3 = Ed3_p*Id3+Eq3_p*Iq3+(Xq3_p-Xd3_p)*Id3*Iq3"/>-->
+		<Eq fx="delta_1 =atg2(v_1*cos(theta_1)+sqrt(Rs1^2+Xq1^2)*sqrt((Pg1^2+Qg1^2)/v_1^2)*cos(Arkus1+gama_1),v_1*sin(theta_1)+sqrt(Rs1^2+Xq1^2)*sqrt((Pg1^2+Qg1^2)/v_1^2)*sin(Arkus1+gama_1))"/>
+		<Eq fx="delta_2 =atg2(v_2*cos(theta_2)+sqrt(Rs2^2+Xq2^2)*sqrt((Pg2^2+Qg2^2)/v_2^2)*cos(Arkus2+gama_2),v_2*sin(theta_2)+sqrt(Rs2^2+Xq2^2)*sqrt((Pg2^2+Qg2^2)/v_2^2)*sin(Arkus2+gama_2))"/>
+		<Eq fx="delta_3 =atg2(v_3*cos(theta_3)+sqrt(Rs3^2+Xq3^2)*sqrt((Pg3^2+Qg3^2)/v_3^2)*cos(Arkus3+gama_3),v_3*sin(theta_3)+sqrt(Rs3^2+Xq3^2)*sqrt((Pg3^2+Qg3^2)/v_3^2)*sin(Arkus3+gama_3))"/>
+		<Eq fx="Id1 = Ig1*cos(gama_1-delta_1+pi/2)"/>
+		<Eq fx="Id2 = Ig2*cos(gama_2-delta_2+pi/2)"/>
+		<Eq fx="Id3 = Ig3*cos(gama_3-delta_3+pi/2)"/>
+		<Eq fx="Iq1 = Ig1*sin(gama_1-delta_1+pi/2)"/>
+		<Eq fx="Iq2 = Ig2*sin(gama_2-delta_2+pi/2)"/>
+		<Eq fx="Iq3 = Ig3*sin(gama_3-delta_3+pi/2)"/>
+
+		<Eq fx="Ed1_p = (Xq1-Xq1_p)*Iq1"/>
+		<Eq fx="Ed2_p = (Xq2-Xq2_p)*Iq2"/>
+		<Eq fx="Ed3_p = (Xq3-Xq3_p)*Iq3"/>
+		<Eq fx="Eq1_p = vq1+Rs1*Iq1+Xd1_p*Id1"/>
+		<Eq fx="Eq2_p = vq2+Rs2*Iq2+Xd2_p*Id2"/>
+		<Eq fx="Eq3_p = vq3+Rs3*Iq3+Xd3_p*Id3"/>
+		<Eq fx="Efd1 = Eq1_p+(Xd1-Xd1_p)*Id1"/>
+		<Eq fx="Efd2 = Eq2_p+(Xd2-Xd2_p)*Id2"/>
+		<Eq fx="Efd3 = Eq3_p+(Xd3-Xd3_p)*Id3"/>
+		<Eq fx="vr1 = (Ke1+0.0039*e^(1.555*Efd1))*Efd1"/>
+		<Eq fx="vr2 = (Ke2+0.0039*e^(1.555*Efd2))*Efd2"/>
+		<Eq fx="vr3 = (Ke3+0.0039*e^(1.555*Efd3))*Efd3"/>
+		<Eq fx="Rf1 = Kf1/Tf1*Efd1"/>
+		<Eq fx="Rf2 = Kf2/Tf2*Efd2"/>
+		<Eq fx="Rf3 = Kf3/Tf3*Efd3"/>
+
+		<Eq fx="v_4^2*G_4_4+v_1*v_4*(G_1_4*cos(theta_4-theta_1)+B_1_4*sin(theta_4-theta_1))+v_4*v_5*(G_4_5*cos(theta_4-theta_5)+B_4_5*sin(theta_4-theta_5))+v_9*v_4*(G_9_4*cos(theta_4-theta_9)+B_9_4*sin(theta_4-theta_9))-P4_inj"/>
+		<Eq fx="-v_4^2*B_4_4+v_1*v_4*(G_1_4*sin(theta_4-theta_1)-B_1_4*cos(theta_4-theta_1))+v_4*v_5*(G_4_5*sin(theta_4-theta_5)-B_4_5*cos(theta_4-theta_5))+v_9*v_4*(G_9_4*sin(theta_4-theta_9)-B_9_4*cos(theta_4-theta_9))-Q4_inj"/>
+		<Eq fx="v_5^2*G_5_5+v_4*v_5*(G_4_5*cos(theta_5-theta_4)+B_4_5*sin(theta_5-theta_4))+v_5*v_6*(G_5_6*cos(theta_5-theta_6)+B_5_6*sin(theta_5-theta_6))-P5_inj"/>
+		<Eq fx="-v_5^2*B_5_5+v_4*v_5*(G_4_5*sin(theta_5-theta_4)-B_4_5*cos(theta_5-theta_4))+v_5*v_6*(G_5_6*sin(theta_5-theta_6)-B_5_6*cos(theta_5-theta_6))-Q5_inj"/>
+		<Eq fx="v_6^2*G_6_6+v_5*v_6*(G_5_6*cos(theta_6-theta_5)+B_5_6*sin(theta_6-theta_5))+v_3*v_6*(G_3_6*cos(theta_6-theta_3)+B_3_6*sin(theta_6-theta_3))+v_6*v_7*(G_6_7*cos(theta_6-theta_7)+B_6_7*sin(theta_6-theta_7))-P6_inj"/>
+		<Eq fx="-v_6^2*B_6_6+v_5*v_6*(G_5_6*sin(theta_6-theta_5)-B_5_6*cos(theta_6-theta_5))+v_3*v_6*(G_3_6*sin(theta_6-theta_3)-B_3_6*cos(theta_6-theta_3))+v_6*v_7*(G_6_7*sin(theta_6-theta_7)-B_6_7*cos(theta_6-theta_7))-Q6_inj"/>
+		<Eq fx="v_3^2*G_3_3+v_3*v_6*(G_3_6*cos(theta_3-theta_6)+B_3_6*sin(theta_3-theta_6))-P3_inj"/>
+		<Eq fx="v_3-v_3_sp"/>
+		<Eq fx="v_7^2*G_7_7+v_6*v_7*(G_6_7*cos(theta_7-theta_6)+B_6_7*sin(theta_7-theta_6))+v_7*v_8*(G_7_8*cos(theta_7-theta_8)+B_7_8*sin(theta_7-theta_8))-P7_inj"/>
+		<Eq fx="-v_7^2*B_7_7+v_6*v_7*(G_6_7*sin(theta_7-theta_6)-B_6_7*cos(theta_7-theta_6))+v_7*v_8*(G_7_8*sin(theta_7-theta_8)-B_7_8*cos(theta_7-theta_8))-Q7_inj"/>
+		<Eq fx="v_8^2*G_8_8+v_7*v_8*(G_7_8*cos(theta_8-theta_7)+B_7_8*sin(theta_8-theta_7))+v_8*v_2*(G_8_2*cos(theta_8-theta_2)+B_8_2*sin(theta_8-theta_2))+v_8*v_9*(G_8_9*cos(theta_8-theta_9)+B_8_9*sin(theta_8-theta_9))-P8_inj"/>
+		<Eq fx="-v_8^2*B_8_8+v_7*v_8*(G_7_8*sin(theta_8-theta_7)-B_7_8*cos(theta_8-theta_7))+v_8*v_2*(G_8_2*sin(theta_8-theta_2)-B_8_2*cos(theta_8-theta_2))+v_8*v_9*(G_8_9*sin(theta_8-theta_9)-B_8_9*cos(theta_8-theta_9))-Q8_inj"/>
+		<Eq fx="v_2^2*G_2_2+v_8*v_2*(G_8_2*cos(theta_2-theta_8)+B_8_2*sin(theta_2-theta_8))-P2_inj"/>
+		<Eq fx="v_2-v_2_sp"/>
+		<Eq fx="v_9^2*G_9_9+v_8*v_9*(G_8_9*cos(theta_9-theta_8)+B_8_9*sin(theta_9-theta_8))+v_9*v_4*(G_9_4*cos(theta_9-theta_4)+B_9_4*sin(theta_9-theta_4))-P9_inj"/>
+		<Eq fx="-v_9^2*B_9_9+v_8*v_9*(G_8_9*sin(theta_9-theta_8)-B_8_9*cos(theta_9-theta_8))+v_9*v_4*(G_9_4*sin(theta_9-theta_4)-B_9_4*cos(theta_9-theta_4))-Q9_inj"/>
+		<Eq fx="Pg1 = v_1^2*G_1_1 + v_1*v_4*(G_1_4*cos(theta_1-theta_4) + B_1_4*sin(theta_1-theta_4))"/>
+		<Eq fx="Qg1 = -v_1^2*B_1_1 + v_1*v_4*(G_1_4*sin(theta_1-theta_4) - B_1_4*cos(theta_1-theta_4))"/>
+		<Eq fx="Pg2 = v_2^2*G_2_2 + v_8*v_2*(G_8_2*cos(theta_2-theta_8) + B_8_2*sin(theta_2-theta_8))"/>
+		<Eq fx="Qg2 = -v_2^2*B_2_2 + v_8*v_2*(G_8_2*sin(theta_2-theta_8) - B_8_2*cos(theta_2-theta_8))"/>
+		<Eq fx="Pg3 = v_3^2*G_3_3 + v_3*v_6*(G_3_6*cos(theta_3-theta_6) + B_3_6*sin(theta_3-theta_6))"/>
+		<Eq fx="Qg3 = -v_3^2*B_3_3 + v_3*v_6*(G_3_6*sin(theta_3-theta_6) - B_3_6*cos(theta_3-theta_6))"/>
+		<Eq fx="Pl6 = v_5^2*G_5_5+v_4*v_5*(G_4_5*cos(theta_5-theta_4)+B_4_5*sin(theta_5-theta_4))+v_5*v_6*(G_5_6*cos(theta_5-theta_6)+B_5_6*sin(theta_5-theta_6))"/>
+		<Eq fx="Ql6 = -v_5^2*B_5_5+v_4*v_5*(G_4_5*sin(theta_5-theta_4)-B_4_5*cos(theta_5-theta_4))+v_5*v_6*(G_5_6*sin(theta_5-theta_6)-B_5_6*cos(theta_5-theta_6))"/>
+		<Eq fx="Pl8= v_7^2*G_7_7+v_6*v_7*(G_6_7*cos(theta_7-theta_6)+B_6_7*sin(theta_7-theta_6))+v_7*v_8*(G_7_8*cos(theta_7-theta_8)+B_7_8*sin(theta_7-theta_8))"/>
+		<Eq fx="Ql8= -v_7^2*B_7_7+v_6*v_7*(G_6_7*sin(theta_7-theta_6)-B_6_7*cos(theta_7-theta_6))+v_7*v_8*(G_7_8*sin(theta_7-theta_8)-B_7_8*cos(theta_7-theta_8))"/>
+		<Eq fx="Pl5= v_9^2*G_9_9+v_8*v_9*(G_8_9*cos(theta_9-theta_8)+B_8_9*sin(theta_9-theta_8))+v_9*v_4*(G_9_4*cos(theta_9-theta_4)+B_9_4*sin(theta_9-theta_4))"/>
+		<Eq fx="Ql5= -v_9^2*B_9_9+v_8*v_9*(G_8_9*sin(theta_9-theta_8)-B_8_9*cos(theta_9-theta_8))+v_9*v_4*(G_9_4*sin(theta_9-theta_4)-B_9_4*cos(theta_9-theta_4))"/>
+		<Eq fx="v_l^2*G22 + v_l*v_g*(G12*cos(theta_l-theta_g) + B12*sin(theta_l-theta_g))-P_l_transient"/>
+		<Eq fx="-v_l^2*B22 + v_l*v_g*(G12*sin(theta_l-theta_g) - B12*cos(theta_l-theta_g))-Q_l"/>
+		<Eq fx="P_ge=v_g^2*G11 + v_l*v_g*(G12*cos(theta_g-theta_l) + B12*sin(theta_g-theta_l))"/>
+		<Eq fx="P_gm=lim(Kp*(omegas-omega_g) + regI, Pgm_min, Pgm_max)"/>
+	</NLEqs>
+	<PostProc>
+
+		<!-- limit angles to be between pi an -pi -->
+		<Eq cond="theta_g > pi">
+			<Then fx="theta_g -= 2*pi"/>
+		</Eq>
+		<Eq cond="theta_l > pi">
+			<Then fx="theta_l -= 2*pi"/>
+		</Eq>
+	</PostProc>
+</Model>
+
