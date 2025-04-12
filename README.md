@@ -40,19 +40,6 @@ The project provides insight into how large-scale interconnected systems can be 
 
 ---
 
-## 📄 Included Files
-
-- `Final-Report-Power-System-DAE-Modeling-and-Simulation.pdf`  
-  Full seminar paper detailing methodology, mathematical models, results, and conclusions
-
-- `model.xml` *(if present)*  
-  Model Solver configuration (system topology and parameters)
-
-- `analysis/`  
-  Python scripts for post-simulation analysis and plotting
-
----
-
 ## 🎓 Academic Context
 
 - **Course**: Power System Modeling and Analysis  
