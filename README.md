@@ -46,7 +46,7 @@ The project provides insight into how large-scale interconnected systems can be 
 - **Authors**: Demir Hasičić, Jumna Alić
 - **Institution**: Faculty of Electrical Engineering, University of Sarajevo  
 - **Supervisor**: Prof. Dr. Izudin Džafić 
-- **Date**: September 2022
+- **Date**: September 2023
 
 ---
 
