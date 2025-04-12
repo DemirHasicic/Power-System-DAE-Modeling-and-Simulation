@@ -58,8 +58,8 @@ The project provides insight into how large-scale interconnected systems can be 
 - **Course**: Power System Modeling and Analysis  
 - **Author**: Demir Hasičić  
 - **Institution**: Faculty of Electrical Engineering, University of Sarajevo  
-- **Supervisor**: Prof. Dr. Elma Smajić  
-- **Date**: January 2024
+- **Supervisor**: Prof. Dr. Izudin Džafić 
+- **Date**: September 2022
 
 ---
 
