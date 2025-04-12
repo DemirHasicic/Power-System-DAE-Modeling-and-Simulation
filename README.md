@@ -38,6 +38,41 @@ The project provides insight into how large-scale interconnected systems can be 
 - 📊 **Plots**
   - Voltage, current, and angular velocity across the system over time
 
+## 🧩 XML Model Descriptions
+
+The following XML files define differential-algebraic equation (DAE) based models used for power system dynamic simulations. They are structured for compatibility with custom DAE solvers and demonstrate increasing levels of complexity.
+
+---
+
+### `dae_generator_basic.xml`
+
+This model represents a **single synchronous generator connected to an isolated node**. It serves as a foundational template for testing DAE-based solvers and simulation algorithms.
+
+**Features:**
+- Full DAE formulation including both differential and algebraic components
+- Solved using the **Trapezoidal Integration Method** for improved numerical stability
+- Includes the **initial power flow subproblem** to compute steady-state operating conditions
+- Models **rotor angle** (`δ`) and **rotor speed** (`ω`) dynamics
+- Includes an **automatic voltage regulator (AVR)** and a **simple excitation system**
+- Ideal for testing basic stability, rotor angle dynamics, and AVR responses
+
+---
+
+### `dae_generator_extended.xml`
+
+This file extends the basic model into a **more complex generator model embedded in a multi-node power system**.
+
+**Features:**
+- Incorporates generator dynamics similar to `dae_generator_basic.xml`, but within a **networked power system**
+- Includes **multiple buses**, line admittances, and algebraic constraints representing **nodal power balance**
+- Enables simulation of **inter-machine oscillations** and **dynamic interactions** across the grid
+- Supports advanced studies including **small-signal stability**, **fault transients**, and **control system effects**
+- Suitable for validating solver robustness under **realistic operating conditions**
+
+---
+
+📘 These files are intended for use with a custom DAE simulation engine and can be adapted for larger systems or used to benchmark various numerical integration methods such as trapezoidal rule, backward Euler, or implicit Runge-Kutta.
+
 ---
 
 ## 🎓 Academic Context
