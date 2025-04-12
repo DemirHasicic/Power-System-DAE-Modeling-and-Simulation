@@ -56,7 +56,7 @@ The project provides insight into how large-scale interconnected systems can be 
 ## 🎓 Academic Context
 
 - **Course**: Power System Modeling and Analysis  
-- **Author**: Demir Hasičić  
+- **Authors**: Demir Hasičić, Jumna Alić
 - **Institution**: Faculty of Electrical Engineering, University of Sarajevo  
 - **Supervisor**: Prof. Dr. Izudin Džafić 
 - **Date**: September 2022
